@@ -7,24 +7,38 @@ OUTPUT_FOLDER = os.path.join(BASE_DIR, "resultados_graficos")
 
 # Parte a)
 def plot_metricas(dic, ambiente, ruta):
-    ise, iae, politicas = [], [], []
+    ise, iae, itse, itae, politicas = [], [], [], [], []
 
     for llave, datos in dic.items():
         if datos['ambiente'] == ambiente and datos['ruta'] == ruta:
             politicas.append(datos['politica'])
             ise.append(datos['ISE'])
             iae.append(datos['IAE'])
+            itse.append(datos['ITSE'])
+            itae.append(datos['ITAE'])
             print(f"Encontrado: {datos['politica']} para {ambiente} {ruta}")
 
-    plt.figure(figsize=(10, 5))
+    plt.figure(figsize=(18, 5))
 
-    plt.subplot(1, 2, 1)
+    plt.subplot(1, 4, 1)
     plt.bar(politicas, ise)
     plt.title("ISE")
+    plt.bar(politicas, ise, color=['blue', 'red'])
 
-    plt.subplot(1, 2, 2)
+    plt.subplot(1, 4, 2)
     plt.bar(politicas, iae)
     plt.title("IAE")
+    plt.bar(politicas, iae, color=['blue', 'red'])
+    
+    plt.subplot(1, 4, 3)
+    plt.bar(politicas, itse)
+    plt.title("ITSE")
+    plt.bar(politicas, itse, color=['blue', 'red'])
+    
+    plt.subplot(1, 4, 4)
+    plt.bar(politicas, itae)
+    plt.title("ITAE")
+    plt.bar(politicas, itae, color=['blue', 'red'])
 
     os.makedirs(OUTPUT_FOLDER, exist_ok=True)
     save_path = os.path.join(OUTPUT_FOLDER, "mapa_metricas.png")
