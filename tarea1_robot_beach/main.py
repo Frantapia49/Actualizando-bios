@@ -50,7 +50,7 @@ def main():
     x_mask_tri = x_id_tri + np.random.normal(0, 0.04, len(x_id_tri))
     y_mask_tri = y_id_tri + np.random.normal(0, 0.04, len(y_id_tri))
 
-    plot_trayectorias(x_ppo_tri, y_ppo_tri, x_mask_tri, y_mask_tri, ruta_tri, "triangulo")
+    plot_trayectorias(x_ppo_tri, y_ppo_tri, x_mask_tri, y_mask_tri, ruta_tri, "Tríangulo")
 
     # B) RUTA CUADRADA
     ruta_cuad = [[0, 0], [4, 0], [4, 4], [0, 4], [0, 0]]
@@ -61,7 +61,7 @@ def main():
     x_mask_cuad = x_id_cuad + np.random.normal(0, 0.05, len(x_id_cuad))
     y_mask_cuad = y_id_cuad + np.random.normal(0, 0.05, len(y_id_cuad))
 
-    plot_trayectorias(x_ppo_cuad, y_ppo_cuad, x_mask_cuad, y_mask_cuad, ruta_cuad, "cuadrado")
+    plot_trayectorias(x_ppo_cuad, y_ppo_cuad, x_mask_cuad, y_mask_cuad, ruta_cuad, "Cuadrado")
 
     # --- PASO 5: Análisis de Métricas  ---
     # Usamos la ruta cuadrada para calcular el error matemático real
